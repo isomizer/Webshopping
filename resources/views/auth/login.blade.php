@@ -40,11 +40,9 @@
 
                     @if (Route::has('password.request'))
                     <div class="text-center p-t-12">
-						<span class="txt1">
-							Forgot
-						</span>
+
 						<a class="txt2" href="{{ route('password.request') }}">
-							Username / Password?
+							Forgot Username / Password?
 						</a>
 					</div>  
                     @endif
