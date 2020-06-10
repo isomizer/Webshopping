@@ -21,4 +21,7 @@ Route::get('/', function () {
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/add_product_yongcharoen', 'productyongController@index'); 
+Route::post('/add_product_yongcharoen/uploadFile', 'productyongController@import');
+
 

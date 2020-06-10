@@ -101,7 +101,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </a>
           <ul class="treeview-menu">
             <li><a href="yongcharoen">View</a></li>
-            <li><a href="#">Add product</a></li>
+            <li><a href="add_product_yongcharoen">Add product</a></li>
           </ul>
         </li>
       </ul>
