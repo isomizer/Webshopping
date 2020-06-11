@@ -49,13 +49,21 @@ class productyongController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'product_code' => 'required',
             'name' => 'required',
-            'detail' => 'required',
+            'type' => 'required',
+            'purchase_price' => 'required',
+            'available_amount' => 'required',
+            'purchase_unit' => 'required',
+            'packing_purchase' => 'required',
+            'retail_price' => 'required',
+            'retail_unit' => 'required',
+            'retail_packing' => 'required',
         ]);
   
         Productyong::create($request->all());
    
-        return redirect()->route('productsYSC.ViewProductPage')
+        return redirect()->route('productsYSC.index')
                         ->with('success','Product created successfully.');
     }
    
@@ -87,7 +95,7 @@ class productyongController extends Controller
   
         $product->update($request->all());
   
-        return redirect()->route('productsYSC.ViewProductPage')
+        return redirect()->route('productsYSC.index')
                         ->with('success','Product updated successfully');
     }
   
@@ -97,11 +105,13 @@ class productyongController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Productyong $product)
+    public function destroy($id)
     {
+        $product = Productyong::findOrFail($id);
         $product->delete();
+        $deleteSort = Productyong::withTrashed()->get();
   
-        return redirect()->route('productsYSC.ViewProductPage')
+        return redirect()->route('productsYSC.index')
                         ->with('success','Product deleted successfully');
     }
 
@@ -109,7 +119,8 @@ class productyongController extends Controller
     {
         Excel::import(new ImportProductyong, request()->file('file'));
              
-        return back();
+        return redirect()->route('productsYSC.index')
+                        ->with('success','Product Import successfully');
     }
 
 

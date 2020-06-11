@@ -25,6 +25,8 @@ class CreateProductyongTable extends Migration
             $table->integer('retail_price')->nullable();
             $table->string('retail_unit')->nullable();
             $table->string('retail_packing')->nullable();
+            $table->softDeletes();
+            $table->timestamps();
             
         });
     }

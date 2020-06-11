@@ -21,6 +21,13 @@
         <li class="active">รายการสินค้า</li>
       </ol>
     </section>
+    @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
+    @endif
+
+
 
     <!-- Main content -->
    <!-- Main content -->
@@ -95,6 +102,7 @@
                   <th>ราคาปลีก</th>
                   <th>หน่วยปลีก</th>
                   <th>บรรจุปลีก</th>
+                  <th></th>
                 </tr>
                 </tfoot>
               </table>
