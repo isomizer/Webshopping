@@ -17,11 +17,13 @@ Auth::routes();
 Route::get('/', function () {
     return redirect()->route('home');
 });
-
-
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/add_product_yongcharoen', 'productyongController@index'); 
-Route::post('/add_product_yongcharoen/uploadFile', 'productyongController@import');
+Route::resource('productsYSC','productyongController');
+
+
+
+Route::get('/import_product_yongcharoen', 'productyongController@ImportProductPage'); 
+Route::post('/import_product_yongcharoen/uploadFile', 'productyongController@import');
 
 

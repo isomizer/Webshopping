@@ -10,6 +10,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <title>AdminLTE</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="{{ asset('dashboardVie/bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{{ asset('dashboardVie/bower_components/font-awesome/css/font-awesome.min.css') }}">
@@ -32,6 +33,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Google Font -->
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+  @yield('stylesheet')
+
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -100,8 +104,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="yongcharoen">View</a></li>
-            <li><a href="add_product_yongcharoen">Add product</a></li>
+            <li><a href="{{ route('productsYSC.index') }}">View</a></li>
+            <li><a href="{{ route('productsYSC.create') }}">Add product</a></li>
+            <li><a href="import_product_yongcharoen">import product file csv</a></li>
           </ul>
         </li>
       </ul>
@@ -128,6 +133,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{ asset('dashboardVie/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('dashboardVie/dist/js/adminlte.min.js') }}"></script>
+
+@yield('scripts')
+
 
 
 </body>
